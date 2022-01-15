@@ -1,13 +1,62 @@
 {% extends 'base.html' %}
+{% block css %}
+    <link href="{{ url_for('static', filename='css/rabbit.css') }}" rel="stylesheet" >
+{% endblock %}
 {% block title %}Rabbit Game{% endblock %}
 {% block content %}
     <h1>Page: {{ page }}</h1>
     <div id="demo">Test JS</div>
 
+    <div class="magic-trick">
+        <div class="rabbit">
+          <div class="ears">
+            <div class="ear"></div>
+            <div class="ear"></div>
+          </div>
+          <div class="head">
+            <div class="face">
+              <div class="eyes">
+                <div class="eye"></div>
+                <div class="eye"></div>
+              </div>
+              <div class="nose"></div>
+              <div class="mouth">X</div>
+            </div>
+          </div>
+          <div class="body">
+            <div class="paws">
+              <div class="paw"></div>
+              <div class="paw"></div>
+            </div>
+          </div>
+          <div class="feet">
+            <div class="foot-left"></div>
+            <div class="foot-right"></div>
+          </div>
+        </div>
+        <div class="hat">
+          <div class="hat-top"></div>
+          <div class="hat-body">
+            <div class="hat-border"></div>
+          </div>
+        </div>
+      
+        <div class=text>
+        <h1 class="illusion">Animation is the <span class="preIllusion">illusion</span> of movement</h1>
+        <h1 class="static-text">illusion</h1>
+        </div>
+    </div>
+    <h1>Web animations are created by updating a screen’s element so quick the human eye can’t see the several states.</h1>
+
+
     {#javascript#}
     <script>
-        var data = "{{ page }} page";
-        alert(data)
-        document.getElementById("demo").innerHTML = "added from js";
+        // var data = "{{ page }} page";
+        // alert(data)
+        // document.getElementById("demo").innerHTML = "added from js";
+
+
     </script>
 {% endblock content %}
+
+
