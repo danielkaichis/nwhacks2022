@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Hi there</h1>
+{% for i in listName %}
+    <ul>
+        <il>{{ i }}</il>
+    </ul>
+{%  endfor %}
+
+<script>
+    const data = {{ listName }};
+    alert(data);
+    document.getElementById("demo").innerHTML = "added from js"
+</script>
+{% endblock content %}
