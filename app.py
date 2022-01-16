@@ -5,8 +5,6 @@ import os
 
 app = Flask(__name__)
 
-
-
 #loading
 @app.route('/')
 def loadingPage():
@@ -54,4 +52,4 @@ def api():
 
 # Dont delete this
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
