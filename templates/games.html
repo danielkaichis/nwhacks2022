@@ -25,6 +25,23 @@
             width: 80%;
             margin: 0 10%;
         }
+
+        #gameHeader {
+            font-family: 'Schoolbell', cursive;
+        }
+
+        #feedMe {
+            font-family: 'Schoolbell', cursive;
+            background-color: #dca195;
+            color: #fdefe2;
+        }
+
+        #feedMe:hover {
+            background-color: #fdefe2;
+            color: #dca195;
+        }
+
+
     </style>
     <body>
         <div class="logo-container w-full left-0 top-0 absolute py-2">
@@ -209,7 +226,7 @@
                     M348.783,465.295h-4.869v4.869h4.869V465.295z M585.607,550.412h-4.869v4.869h4.869V550.412z M516.339,503.703h-4.869v4.869h4.869
                     V503.703z M715.435,501.268h-4.869v4.869h4.869V501.268z"/>
                 </svg>
-                    <button id="feedMe" class="bg-white p-2 border border-2 border-gray-900 rounded-lg" onclick=changerect() >Click To Feed Me</button>
+                    <button id="feedMe" class="rounded-md py-2 mt-3 px-4 transition-colors duration-300" onclick=changerect() >Click To Feed Me</button>
             </div>
 
             {#drawing game#}   
