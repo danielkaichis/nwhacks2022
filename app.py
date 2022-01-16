@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from notification import SMS
+import json
 
 app = Flask(__name__)
 
@@ -12,8 +13,15 @@ def homePage():
 # stretch
 @app.route("/stretch")
 def stretchPage():
-    name = "stretch"
-    return render_template('stretch.html', page=name)
+    details = []
+    name = []
+    with open('static/stretches.json') as json_file:
+        data = json.load(json_file)
+        for ele in data:
+            for key, value in ele.items():
+                name.append(value[0])
+                details.append(value[1])
+        return render_template('stretch.html', name=json.dumps(name), details=json.dumps(details))
 
 # games
 @app.route("/games")
