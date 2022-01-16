@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% block title %}Stretch{% endblock %}
+{% block css %}
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"/>
+{% endblock %}
 {% block content %}
     <style>
         .logo-container {
@@ -17,6 +20,9 @@
     <div class="logo-container w-full left-0 top-0 absolute justify-center place-content-center py-2">
         <img class="logo justify-center" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" class="image-footer"> 
     </div>
+    <br/>
+    <br/>
+    <br/>
     <h1>Page: {{ page }}</h1>
     <div id="demo">Test JS</div>
 
