@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% block title %}Stretch{% endblock %}
 {% block css %}
-<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="{{ url_for('static', filename='css/stretch.css') }}" rel="stylesheet" >
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"/>
 {% endblock %}
 {% block content %}
     <style>
@@ -23,37 +24,52 @@
     <br/>
     <br/>
     <br/>
-    <h1>Page: {{ page }}</h1>
-    <div id="demo">Test JS</div>
 
     <!-- This is just an example gif -->
     <!-- src = path taken to find gif, and made it to be 400x400 -->
     <!-- Please make all of them 400x400 -->
-    <img src="/static/gifs/001.gif" alt="Stretch" style="width:400px;height:400px;">
+    <h1 id="name"></h1>
+    <img src="/static/gifs/001.gif" id="stretchImage" alt="Stretch" style="width:400px;height:400px;">
+    <input type="button" id="stretchButton" value="Next"/>
+    <div id="description"></div>
+    <a href="/games" class="next" style="background-color: #04AA6D;color: white;">Next &raquo;</a>
 
-    <input type="button" id="stretchButton" value="1"/>
 
     {#javascript#}
     <script>
-        
-        var data = "{{ page }} page";
-        alert(data)
+        // json info
+        let names = {{ name|safe }};
+        let details = {{ details|safe }};
         let button = document.getElementById("stretchButton");
+        let image = document.getElementById("stretchImage")
+        let title = document.getElementById("name")
+        let description = document.getElementById("description")
+
+        title.innerHTML = names[0];
+        description.innerHTML = details[0];
 
 
-        let i = 1;
+        let i = 2;
+        let j = 1;
         button.onclick = function(){
-            
-            let image = `00${i}.gif`
+            // change image
+            let imageName = i < 10?`/static/gifs/00${i}.gif`:`/static/gifs/0${i}.gif`;
+            // change title
+            title.innerHTML = names[j];
+            description.innerHTML = details[j];
+            image.src = imageName;
 
-            console.log(image)
-            i += 1;
-
-            if(i == 12){
-                i = 1;
+            if(j == 10){
+                j = 0;
+            }else{
+                j++;
             }
-        }
-        document.getElementById("demo").innerHTML = "added from js";
+            if(i == 11){
+                i = 1;
+            }else{
+                i++;
+            }
 
+        }
     </script>
 {% endblock content %}
