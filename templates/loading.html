@@ -5,15 +5,18 @@
     {% block css %}
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"/>
         <link href="{{ url_for('static', filename='css/loading.css') }}" rel="stylesheet" >
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Schoolbell&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     {% endblock %}
 
     <div class="logo-container">
-        <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" class="image-footer"
-             >
+        <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" class="image-footer">
     </div>
 
     <div class="aboutContainer">
-        <div class="about">
+        <div class="about font-light text-center">
             Stress: a word all of us students can relate to.
             Due to the pandemic, students spend more than half their day sitting at their computers,
             which are affecting their physical and mental health. Working from home has also increased burnout rate and
@@ -29,7 +32,7 @@
 
     </div>
     <a href="/home" id="studyButton" class="next mt-40 items-center">Start Studying &raquo;</a>
-    <div class="h-100">
+    <div class="h-100 pt-10">
         <img class="image-footer" src="{{ url_for('static', filename='images/grass.png') }}" alt="img" rel="image">
     </div>
 

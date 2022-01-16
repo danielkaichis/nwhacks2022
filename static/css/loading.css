@@ -1,6 +1,6 @@
 body {
         background-color: #dca195;
-        height: 100%;
+        height: 110%;
 }
 
 .image-footer{
@@ -21,9 +21,8 @@ body {
 
 .about{
     font-size: 1.3em;
-    font-weight: bold;
     color: #ffefea;
-    font-family: 'Schoolbell'
+    font-family: 'Lato', sans-serif;
 }
 
 #studyButton{
