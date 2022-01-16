@@ -1,0 +1,65 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+<link
+        href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+        rel="stylesheet"
+/>
+
+<style>
+    .image-footer {
+        width: 80%;
+        margin: 0 10%;
+    }
+
+    body {
+        background-color: #dca195;
+        height: 100%;
+    }
+
+    /*.logo-container {*/
+    /*    height: 650px;*/
+
+
+    /*}*/
+</style>
+
+
+
+<body>
+
+
+    <div class="logo-container">
+        <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" class="image-footer"
+             >
+    </div>
+
+    <div class="About" style="font-size: medium; color: #896d80; font-family: 'Schoolbell'">
+        <h1>
+            Stress: a word all of us students can relate to.
+            Due to the pandemic, students spend more than half their day sitting at their computers,
+            which are affecting their physical and mental health. Working from home has also increased burnout rate and
+            making it more and more difficult to stay focused and productive throughout the day.
+
+            To help students with their mental and physical health, our team created the web app “Hare”.
+            “Hare” seeks to combat anxiety and stress by assisting students through
+            its many features: the app generates periods of studying and rest to guide the user with time management;
+            it also provides important information on what stretches to perform to keep your body feeling good and
+            has mini-games to help them relax and calm their anxious nerves. Through “Hare” our team hopes
+            to help students around the world manage their time and stress.
+        </h1>
+
+    </div>
+
+
+
+
+
+    <div class="h-100">
+        <img class="image-footer" src="{{ url_for('static', filename='images/grass.png') }}" alt="img" rel="image">
+    </div>
+
+</body>
+
+{% endblock content %}
