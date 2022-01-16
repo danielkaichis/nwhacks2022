@@ -15,7 +15,7 @@ def homePage():
 def stretchPage():
     details = []
     name = []
-    with open('static/stretches.json') as json_file:
+    with open('./static/stretches.json') as json_file:
         data = json.load(json_file)
         for ele in data:
             for key, value in ele.items():
@@ -39,7 +39,7 @@ def about():
 def api():
   print("sent SMS")
   # do not uncomment this until demo
-  # SMS()
+  #SMS()
   return request.values.get('input', '')
 
 ''' 
