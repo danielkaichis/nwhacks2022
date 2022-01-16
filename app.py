@@ -15,8 +15,7 @@ def stretchPage():
     name = "stretch"
     return render_template('stretch.html', page=name)
 
-''' Later we will combine these two game page togeter '''
-# Rabbit game
+# games
 @app.route("/games")
 def rabbitPage():
     name = "rabbit"
