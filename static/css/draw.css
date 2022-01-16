@@ -1,0 +1,7 @@
+.slidecontainer {
+  width: 100%;
+}
+
+#myCanvas{
+   cursor: crosshair;
+}
