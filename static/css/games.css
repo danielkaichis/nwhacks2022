@@ -1,0 +1,70 @@
+/* https://codepen.io/david_barukcic/pen/ONjPWV */
+/* rabbit game */
+body {
+    background: #f1d1c7;
+    width: 100%;
+    height: 100%;
+}
+
+#gameHeader{
+    text-align: center;
+}
+
+svg {
+    max-height: 600px;
+    width: 100%;
+}
+
+#paddle {
+    cursor: pointer;
+}
+
+@media (max-width:480px) {
+    svg {
+        max-height: 400px;
+        width: 100%;
+    }
+}
+
+.gameContainer{
+    text-align: center;
+    height: 100%;
+    padding-top: 100px;
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+#gameRow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#feedMe{
+    position: relative;
+    bottom: 10em;
+    left: 1em;
+}
+
+/* drawing game */
+body {
+    background: #e2b29f;
+    width: 100%;
+    height: 100%;
+}
+
+.slidecontainer {
+    width: 100%;
+}
+
+#drawingContainer{
+    padding-top: 15%;
+}
+
+#myCanvas{
+    cursor: crosshair;
+    border:1px solid #000000;
+    background-color: #eeeeee;
+
+}

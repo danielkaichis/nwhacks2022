@@ -218,6 +218,7 @@
                 progress = null;
                 progressStart = 0;
                 breakBtn.style.display = "block";
+                sendNotification();
             }
         }
 
@@ -352,6 +353,16 @@
             displayTodo();
         } 
 
+        function sendNotification(){
+            const API_URL = '/api'
+
+              const xhr = new XMLHttpRequest()
+              const data = "timeUp"
+
+              xhr.open('POST', API_URL, true)
+              xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+              xhr.send("keyword=" + data)
+        }
     </script>
 </html>
 {% endblock content %}
