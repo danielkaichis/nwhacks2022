@@ -5,18 +5,25 @@
     <link href="{{ url_for('static', filename='css/draw.css') }}" rel="stylesheet" >
 {% endblock %}
 {% block content %}
-    <h1>Page: {{ page }}</h1>
-    <div id="demo">Test JS</div>
-    <div id="drawingContainer">
-        <div id = "settings">
-            <b>Size: <input type="range" min="1" max="20" value="5" id = "size"></b>
-            <b>Color:<input id = "color" type = "color" value="#000000"></b>
-            <input id = "clear" type = "button" value="Clear">
-            <a id="download" download="img.png" href="" onclick="downloadImage(this);">Download</a>
-         </div>
+    <style>
+        body {
+            background-color: #f1d1c7;
+        }
+    </style>
+    <body>
+        <h1>Page: {{ page }}</h1>
+        <div id="demo">Test JS</div>
+        <div id="drawingContainer">
+            <div id = "settings">
+                <b>Size: <input type="range" min="1" max="20" value="5" id = "size"></b>
+                <b>Color:<input id = "color" type = "color" value="#000000"></b>
+                <input id = "clear" type = "button" value="Clear">
+                <a id="download" download="img.png" href="" onclick="downloadImage(this);">Download</a>
+            </div>
 
-        <canvas id="myCanvas" style="border:1px solid #000000;"/>
-    </div>
+            <canvas id="myCanvas" style="border:1px solid #000000;"/>
+        </div>
+    </body>
 
     {#javascript#}
     <script>

@@ -102,7 +102,8 @@
         }
 
         .image-footer {
-            width: 110%;
+            width: 80%;
+            margin: 0 10%;
         }
 
         .delete-todo {
@@ -111,7 +112,8 @@
 
     </style>
     <body>
-        <div class="grid grid-cols-12 gap-1 mt-20 w-full h-full">
+        <img class="absolute align-center top-0 mb-12 image-header" src="{{ url_for('static', filename='images/logo.png') }}" alt="Hare" rel="image">
+        <div class="z-1 grid grid-cols-12 gap-1 mt-20 w-full h-full">
             <div class="pl-8 bg-teal-lightest font-sans col-span-5">
                 <div class="ml-20 bg-white rounded shadow px-6 pt-6 pb-2 mx-4 mt-4 lg:w-3/4 lg:max-w-lg">
                     <div class="mb-2">
@@ -142,8 +144,10 @@
                 </div>
             </div>
         </div>
-        <button id="break-btn" class="text-black transition-colors duration-300" style="display: none" id="save-todo-btn">Break</button>
-        <img class="mt-32 image-footer" src="{{ url_for('static', filename='images/.png') }}" alt="img" rel="image">
+        <button id="break-btn" class="z-5 p-4 text-center bg-red border border-solid border-blue-600 rounded mt-1 text-black" style="display: block" id="save-todo-btn">Take a Break</button>
+        <div class="h-100">
+            <img class="z-0 absolute image-footer" src="{{ url_for('static', filename='images/grass.png') }}" alt="img" rel="image">
+        </div>
     </body>
     </html>
 
@@ -206,23 +210,23 @@
         }
 
         function resetValues() {
-        if (progress) {
-            clearInterval(progress);
-        }
-        minutes = document.querySelector("#minutes").innerHTML;
-        seconds = document.querySelector("#seconds").innerHTML;
-        minElem.contentEditable = false;
-        minElem.style.borderBottom = `none`;
-        secElem.contentEditable = false;
-        secElem.style.borderBottom = `none`;
-        progress = null;
-        progressStart = 0;
-        progressEnd = parseInt(minutes) * 60 + parseInt(seconds);
-        degTravel = 360 / progressEnd;
-        progressBar.style.background = `conic-gradient(
-                #F1d1c7 360deg,
-                #F1d1c7 360deg
-            )`;
+            if (progress) {
+                clearInterval(progress);
+            }
+            minutes = document.querySelector("#minutes").innerHTML;
+            seconds = document.querySelector("#seconds").innerHTML;
+            minElem.contentEditable = false;
+            minElem.style.borderBottom = `none`;
+            secElem.contentEditable = false;
+            secElem.style.borderBottom = `none`;
+            progress = null;
+            progressStart = 0;
+            progressEnd = parseInt(minutes) * 60 + parseInt(seconds);
+            degTravel = 360 / progressEnd;
+            progressBar.style.background = `conic-gradient(
+                    #F1d1c7 360deg,
+                    #F1d1c7 360deg
+                )`;
         }
 
         startStop.onclick = function () {
@@ -230,8 +234,6 @@
                 if (!(parseInt(minutes) === 0 && parseInt(seconds) === 0)) {
                 startStop.innerHTML = "STOP";
                 startStopProgress();
-                } else {
-                alert("Enter the Time Value in your Timer!");
                 }
             } else {
                 startStop.innerHTML = "START";
