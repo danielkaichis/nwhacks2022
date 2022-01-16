@@ -1,13 +1,331 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
 {% block content %}
-    <h1>Page: {{ page }}</h1>
-    <div id="demo">Test JS</div>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+        href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+        rel="stylesheet"
+        />
+        <title>Home</title>
+    </head>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@700&display=swap");
+
+        :root {
+            --bg: #F1d1c7;
+            --normal-ring: #F1d1c7;
+            --red-ring: #9d0000;
+            --green-ring: #00aa51;
+            --timer-bg: radial-gradient(
+                71.4% 71.4% at 51.7% 28.6%,
+                #333a393f 0%,
+                #17171a 100%
+            );
+            --font-timer: "Bebas Neue", cursive;
+            --font-stsp: "Montserrat", sans-serif;
+            --font-clr: #ffffff;
+        }
+
+        body {
+            background: var(--bg);
+        }
+        
+        .outerRing {
+            display: grid;
+            place-items: center;
+            width: 515px;
+            height: 515px;
+            border-radius: 50%;
+            box-shadow: -5px 14px 44px #000000, 5px -16px 50px rgba(255, 255, 255, 0.15);
+            background: var(--normal-ring);
+        }
+
+        .timer {
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: var(--timer-bg);
+            box-shadow: inset 0px 0px 114px rgba(0, 0, 0, 0.45);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 8rem;
+        }
+
+        #time {
+            width: 300px;
+            text-align: center;
+            margin: 3rem 0 0 0;
+        }
+
+        #time span {
+            color: var(--font-clr);
+            font-family: var(--font-timer);
+            font-size: 7rem;
+            letter-spacing: 0.1em;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        #stsp {
+            color: var(--font-clr);
+            cursor: pointer;
+            font-family: Montserrat;
+            font-weight: bold;
+            font-size: 1rem;
+            line-height: 1.25rem;
+            text-align: center;
+            letter-spacing: 0.6em;
+            margin: 1rem 0;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .todo-title {
+            color: #E9b3a3;
+        }
+
+        .add-todo {
+            background-color: #E9b3a3;
+            user-select: none;
+        }
+
+        .edit-todo {
+            background-color: #acd1af;
+        }
+
+        #save-todo-btn {
+            background-color: #E9b3a3;
+            user-select: none;
+        }
+
+        .image-footer {
+            width: 80%;
+            margin: 0 10%;
+        }
+
+        .delete-todo {
+            background-color: #f18181;
+        }
+
+    </style>
+    <body>
+        <img class="absolute align-center top-0 mb-12 image-header" src="{{ url_for('static', filename='images/logo.png') }}" alt="Hare" rel="image">
+        <div class="z-1 grid grid-cols-12 gap-1 mt-20 w-full h-full">
+            <div class="pl-8 bg-teal-lightest font-sans col-span-5">
+                <div class="ml-20 bg-white rounded shadow px-6 pt-6 pb-2 mx-4 mt-4 lg:w-3/4 lg:max-w-lg">
+                    <div class="mb-2">
+                        <h1 class="text-3xl md:text-4xl todo-title font-medium mb-2">To-Do List</h1>
+                        <div class="flex mt-4">
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker" name="text" id="text" placeholder="Add Todo" />
+                            <input type="hidden" id="saveIndex" />
+                            <button class="lg:px-4 md:mx-2 text-center border border-solid border-indigo-600 rounded add-todo text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1" id="add-task-btn">Add</button>
+                            <button class="lg:px-4 md:mx-2 text-center border border-solid border-indigo-600 rounded text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1" style="display: none" id="save-todo-btn">Save</button>
+                        </div>
+                    </div>
+                    <div id="listBox"></div>
+                </div>
+            </div>
+            <div class="grid col-span-7">
+                <div class="grid justify-center">
+                    <div class="outerRing">
+                        <div class="timer">
+                            <div id="time">
+                                <span id="minutes">00</span>
+                                <span id="colon">:</span>
+                                <span id="seconds">10</span>
+                            </div>
+                            <div id="stsp">START</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="break-btn" class="z-5 p-4 text-center bg-red border border-solid border-blue-600 rounded mt-1 text-black" style="display: block" id="save-todo-btn">Take a Break</button>
+        <div class="h-100">
+            <img class="z-0 absolute image-footer" src="{{ url_for('static', filename='images/grass.png') }}" alt="img" rel="image">
+        </div>
+    </body>
+    </html>
 
     {#javascript#}
     <script>
-        var data = "{{ page }} page";
-        alert(data)
-        document.getElementById("demo").innerHTML = "added from js";
+        const progressBar = document.querySelector(".outerRing");
+        const minElem = document.querySelector("#minutes");
+        const secElem = document.querySelector("#seconds");
+        const startStop = document.querySelector("#stsp");
+        const breakBtn = document.getElementById("break-btn");
+
+        let minutes = document.querySelector("#minutes").innerHTML,
+        seconds = document.querySelector("#seconds").innerHTML,
+        progress = null,
+        progressStart = 0,
+        progressEnd = parseInt(minutes) * 60 + parseInt(seconds),
+        speed = 1000,
+        degTravel = 360 / progressEnd,
+        secRem = 0,
+        minRem = 0;
+
+        function progressTrack() {
+            progressStart++;
+
+            secRem = Math.floor((progressEnd - progressStart) % 60);
+            minRem = Math.floor((progressEnd - progressStart) / 60);
+
+            secElem.innerHTML = secRem.toString().length == 2 ? secRem : `0${secRem}`;
+            minElem.innerHTML = minRem.toString().length == 2 ? minRem : `0${minRem}`;
+
+            progressBar.style.background = `conic-gradient(
+                    #E9b3a3 ${progressStart * degTravel}deg,
+                    #F1d1c7 ${progressStart * degTravel}deg
+                )`;
+            if (progressStart == progressEnd) {
+                progressBar.style.background = `conic-gradient(
+                    #E9b3a3 360deg,
+                    #E9b3a3 360deg
+                )`;
+                clearInterval(progress);
+                startStop.innerHTML = "START";
+                progress = null;
+                progressStart = 0;
+                breakBtn.style.display = "block";
+            }
+        }
+
+        function startStopProgress() {
+            if (!progress) {
+                progress = setInterval(progressTrack, speed);
+            } else {
+                clearInterval(progress);
+                progress = null;
+                progressStart = 0;
+                progressBar.style.background = `conic-gradient(
+                    #F1d1c7 360deg,
+                    #F1d1c7 360deg
+                )`;
+            }
+        }
+
+        function resetValues() {
+            if (progress) {
+                clearInterval(progress);
+            }
+            minutes = document.querySelector("#minutes").innerHTML;
+            seconds = document.querySelector("#seconds").innerHTML;
+            minElem.contentEditable = false;
+            minElem.style.borderBottom = `none`;
+            secElem.contentEditable = false;
+            secElem.style.borderBottom = `none`;
+            progress = null;
+            progressStart = 0;
+            progressEnd = parseInt(minutes) * 60 + parseInt(seconds);
+            degTravel = 360 / progressEnd;
+            progressBar.style.background = `conic-gradient(
+                    #F1d1c7 360deg,
+                    #F1d1c7 360deg
+                )`;
+        }
+
+        startStop.onclick = function () {
+            if (startStop.innerHTML === "START") {
+                if (!(parseInt(minutes) === 0 && parseInt(seconds) === 0)) {
+                startStop.innerHTML = "STOP";
+                startStopProgress();
+                }
+            } else {
+                startStop.innerHTML = "START";
+                startStopProgress();
+            }
+        };
+
+        minElem.onblur = function () {
+            resetValues();
+        };
+
+        secElem.onblur = function () {
+            resetValues();
+        };
+
+        const text = document.getElementById("text");
+        const addTodo = document.getElementById("add-task-btn");
+        const saveTodo = document.getElementById("save-todo-btn");
+        const listBox = document.getElementById("listBox");
+        const saveIndex = document.getElementById("saveIndex");
+
+        let todoArray = [];
+
+        if (window.performance) {
+            console.info(performance.navigation.type);
+            if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+                displayTodo();
+            }
+        }
+
+        addTodo.addEventListener("click", (e) => {
+            e.preventDefault()
+            let todo = localStorage.getItem("todo");
+            if (todo === null) {
+                todoArray = [];
+            } else {
+                todoArray = JSON.parse(todo);
+            }
+            todoArray.push(text.value);
+            text.value = "";
+            localStorage.setItem("todo", JSON.stringify(todoArray));
+            displayTodo();
+        });
+
+        saveTodo.addEventListener("click", () => {
+            let todo = localStorage.getItem("todo");
+            todoArray = JSON.parse(todo);
+            let id = saveIndex.value;
+            todoArray[id] = text.value;
+            addTodo.style.display = "block";
+            saveTodo.style.display = "none";
+            text.value = "";
+            localStorage.setItem("todo", JSON.stringify(todoArray));
+            displayTodo();
+        });
+
+        function displayTodo() {
+            let todo = localStorage.getItem("todo");
+            if (todo === null) {
+                todoArray = [];
+            } else {
+                todoArray = JSON.parse(todo);
+            }
+            let htmlCode = "";
+            
+            todoArray.forEach((list, i) => {
+                htmlCode += `<div class='flex mb-4 items-center'>
+                <p class='w-full text-grey-darkest'>${list}</p>
+                <button onclick='editTodo(${i})' class='flex-no-shrink p-2 ml-4 mr-2 border-2 rounded text-white edit-todo text-grey bg-green-600'>Edit</button>
+                <button onclick='deleteTodo(${i})' class='flex-no-shrink p-2 ml-2 border-2 rounded text-white delete-todo'>Delete</button>
+                </div>`;
+            });
+            listBox.innerHTML = htmlCode;
+        }
+
+        function editTodo(i) {
+            saveIndex.value = i;
+            let todo = localStorage.getItem("todo");
+            todoArray = JSON.parse(todo);
+            text.value = todoArray[i];
+            addTodo.style.display = "none";
+            saveTodo.style.display = "block";
+        }
+
+        function deleteTodo(i) {
+            let todo = localStorage.getItem("todo");
+            todoArray = JSON.parse(todo);
+            todoArray.splice(i, 1);
+            localStorage.setItem("todo", JSON.stringify(todoArray));
+            displayTodo();
+        } 
+
     </script>
+</html>
 {% endblock content %}
