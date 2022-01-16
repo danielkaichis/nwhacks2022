@@ -110,10 +110,36 @@
             background-color: #f18181;
         }
 
+        .logo-container {
+            background-color: #dca195;
+        }
+
+        .logo {
+            height: 50px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: auto;
+        }
+
+        #break-btn {
+            background-color: #dca195;
+            border-width: 2px;
+            border-color: #F1d1c7;
+            position: absolute;
+            right: 400px;
+            bottom: 320px;
+            font-family: Montserrat;
+            letter-spacing: 0.1em;
+        }
+            
+
     </style>
     <body>
-        <img class="absolute align-center top-0 mb-12 image-header" src="{{ url_for('static', filename='images/logo.png') }}" alt="Hare" rel="image">
-        <div class="z-1 grid grid-cols-12 gap-1 mt-20 w-full h-full">
+        <div class="logo-container w-full left-0 top-0 absolute justify-center place-content-center py-2">
+            <img class="logo justify-center" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" class="image-footer"> 
+        </div>
+        <div class="z-1 grid grid-cols-12 gap-1 mt-20 w-full h-full pt-4">
             <div class="pl-8 bg-teal-lightest font-sans col-span-5">
                 <div class="ml-20 bg-white rounded shadow px-6 pt-6 pb-2 mx-4 mt-4 lg:w-3/4 lg:max-w-lg">
                     <div class="mb-2">
@@ -144,9 +170,9 @@
                 </div>
             </div>
         </div>
-        <button id="break-btn" class="z-5 p-4 text-center bg-red border border-solid border-blue-600 rounded mt-1 text-black" style="display: block" id="save-todo-btn">Take a Break</button>
+        <a id="break-btn" class="absolute z-5 p-4 text-center rounded mt-1 text-white font-bold" style="display: none" href="stretch">Take a Break</a>
         <div class="h-100">
-            <img class="z-0 absolute image-footer" src="{{ url_for('static', filename='images/grass.png') }}" alt="img" rel="image">
+            <img class="image-footer" src="{{ url_for('static', filename='images/grass.png') }}" alt="img" rel="image">
         </div>
     </body>
     </html>
