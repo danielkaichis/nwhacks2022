@@ -5,17 +5,19 @@ import os
 
 app = Flask(__name__)
 
-# home
-@app.route('/')
-def homePage():
-    name = "home"
-    return render_template('home.html', page=name)
+
 
 #loading
-@app.route('/loading')
+@app.route('/')
 def loadingPage():
     name = "loading"
     return render_template('loading.html', page=name)
+
+# home
+@app.route('/home')
+def homePage():
+    name = "home"
+    return render_template('home.html', page=name)
 
 # stretch
 @app.route("/stretch")
