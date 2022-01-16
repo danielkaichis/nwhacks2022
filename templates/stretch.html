@@ -3,6 +3,10 @@
 {% block css %}
     <link href="{{ url_for('static', filename='css/stretch.css') }}" rel="stylesheet" >
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Schoolbell&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 {% endblock %}
 {% block content %}
     <style>
@@ -32,19 +36,41 @@
         }
 
         .next {
-            background-color: #eb5035;
+            background-color: #f08181;
             color: white;
         }
 
         .next:hover {
-            background-color: #d93926;
+            background-color: #d05d5d;
             color: white;
+        }
+
+        .image-footer {
+            width: 80%;
+            margin: 0 10%;
+        }
+
+        #stretchImage {
+            border-color: #ca7969;
+            border-width: 2px;
+        }
+
+        .screen {
+            height: 110%;
+        }
+
+        .stretch-title {
+            font-family: 'Schoolbell', cursive;
+        }
+
+        .stretch {
+            font-family: 'Lato', sans-serif;
         }
 
 
         
     </style>
-    <body class="h-screen">
+    <body class="screen">
         <div class="logo-container w-full left-0 top-0 absolute justify-center place-content-center py-2">
             <img class="logo justify-center" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" class="image-footer"> 
         </div>
@@ -54,19 +80,29 @@
         <br/>
 
         <div class="grid grid-cols-6 col-gap-20 justify-center 2 place-content-center m-auto w-2/3">
-            <div class="col-span-3">
-                <img src="/static/gifs/001.gif" id="stretchImage" class="justify-center" alt="Stretch" style="width:400px;height:400px;">
+            <p class="col-span-6 font-bold stretch-title text-3xl text-center">Why should you stretch?</p>
+            <p class="col-span-6 pt-1 stretch text-center">With many students are stuck at home in front of their computers, 
+                stretching is more important now than ever. Sitting for long periods of time 
+                can cause muscle pain in the neck, back, or shoulders; this not only impacts your 
+                physical health but also your mental health as it distracts you from your work. Stretching has the benefit of loosening 
+                your muscles, which is important because it makes you feel good, thereby increasing your productivity 
+                and mood. Furthermore, stretching increases serotonin levels which enhances ones ability to deal with stress.</p>
+            <div class="col-span-3 pt-4">
+                <img src="/static/gifs/001.gif" id="stretchImage" class="justify-center rounded-md " alt="Stretch" style="width:400px;height:400px;">
             </div>
             <div class="col-span-3">
                 <br/>
                 <br/>
-                <h1 id="name" class="font-semibold text-2xl pb-2"></h1>
-                <div id="description" class="text-xl col-span-3"></div>
+                <h1 id="name" class="stretch-title font-semibold text-3xl pb-2"></h1>
+                <div id="description" class="stretch text-xl col-span-3"></div>
                 <br/>
-                <input type="button" class="next-stretch p-2 border rounded-lg text-gray-900" id="stretchButton" value="Next Stretch"/>
+                <input type="button" class="transition-colors duration-300 stretch next-stretch p-2 rounded-md text-gray-900" id="stretchButton" value="Next Stretch"/>
             </div>
+            <a href="/games" class="next stretch mt-6 mx-auto col-span-6 rounded-md items-center transition-colors duration-300">Next Page &raquo;</a>
         </div>
-        <a href="/games" class="next mt-40 items-center">Next Page &raquo;</a>
+        <div class="h-100 pt-4">
+            <img class="image-footer" src="{{ url_for('static', filename='images/grass.png') }}" alt="img" rel="image">
+        </div>
     </body>
 
     {#javascript#}

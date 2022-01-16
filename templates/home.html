@@ -6,6 +6,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Schoolbell&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
         <title>Home</title>
     </head>
     <style>
@@ -82,20 +86,37 @@
 
         .todo-title {
             color: #E9b3a3;
+            font-family: "Schoolbell", cursive;
         }
 
         .add-todo {
             background-color: #E9b3a3;
             user-select: none;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .add-todo:hover {
+            background-color: #e79c85;
         }
 
         .edit-todo {
             background-color: #acd1af;
+            user-select: none;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .edit-todo:hover {
+            background-color: #8cc28c;
+        }
+
+        .todo {
+            font-family: 'Lato', sans-serif;
         }
 
         #save-todo-btn {
             background-color: #E9b3a3;
             user-select: none;
+            font-family: 'Lato', sans-serif;
         }
 
         .image-footer {
@@ -105,6 +126,11 @@
 
         .delete-todo {
             background-color: #f18181;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .delete-todo:hover {
+            background-color: #eb6363;
         }
 
         .logo-container {
@@ -129,6 +155,10 @@
             font-family: Montserrat;
             letter-spacing: 0.1em;
         }
+
+        #break-btn:hover {
+            background-color: #e28e74;
+        }
             
 
     </style>
@@ -140,9 +170,9 @@
             <div class="pl-8 bg-teal-lightest font-sans col-span-5">
                 <div class="ml-20 bg-white rounded shadow px-6 pt-6 pb-2 mx-4 mt-4 lg:w-3/4 lg:max-w-lg">
                     <div class="mb-2">
-                        <h1 class="text-3xl md:text-4xl todo-title font-medium mb-2">To-Do List</h1>
+                        <h1 class="text-4xl md:text-4xl todo-title font-medium mb-2">To-Do List</h1>
                         <div class="flex mt-4">
-                            <input class="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker" name="text" id="text" placeholder="Add Todo" />
+                            <input class="shadow todo-text appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker" name="text" id="text" placeholder="Add Todo" />
                             <input type="hidden" id="saveIndex" />
                             <button class="lg:px-4 md:mx-2 text-center border border-solid border-indigo-600 rounded add-todo text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1" id="add-task-btn">Add</button>
                             <button class="lg:px-4 md:mx-2 text-center border border-solid border-indigo-600 rounded text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1" style="display: none" id="save-todo-btn">Save</button>
@@ -167,7 +197,7 @@
                 </div>
             </div>
         </div>
-        <a id="break-btn" class="absolute z-5 p-4 text-center rounded mt-1 text-white font-bold" style="display: none" href="stretch">Take a Break</a>
+        <a id="break-btn" class="absolute z-5 p-4 text-center rounded mt-1 text-white font-bold transition-colors duration-300" style="display: none" href="stretch">Take a Break</a>
         <div class="h-100">
             <img class="image-footer" src="{{ url_for('static', filename='images/grass.png') }}" alt="img" rel="image">
         </div>
@@ -325,9 +355,9 @@
             
             todoArray.forEach((list, i) => {
                 htmlCode += `<div class='flex mb-4 items-center'>
-                <p class='w-full text-grey-darkest'>${list}</p>
-                <button onclick='editTodo(${i})' class='flex-no-shrink p-2 ml-4 mr-2 border-2 rounded text-white edit-todo text-grey bg-green-600'>Edit</button>
-                <button onclick='deleteTodo(${i})' class='flex-no-shrink p-2 ml-2 border-2 rounded text-white delete-todo'>Delete</button>
+                <p class='w-full text-grey-darkest todo'>${list}</p>
+                <button onclick='editTodo(${i})' class='flex-no-shrink p-2 ml-4 mr-2 border-2 rounded text-white edit-todo text-grey bg-green-600 transition-colors duration-300'>Edit</button>
+                <button onclick='deleteTodo(${i})' class='flex-no-shrink p-2 ml-2 border-2 rounded text-white delete-todo transition-colors duration-300'>Delete</button>
                 </div>`;
             });
             listBox.innerHTML = htmlCode;
