@@ -1,0 +1,44 @@
+body {
+        background-color: #dca195;
+        height: 100%;
+}
+
+.image-footer{
+    width: 80%;
+    margin: 0 10%;
+}
+
+.logo{
+   width: 25%;
+   margin: 3em auto 0 auto;
+}
+
+.aboutContainer{
+    font-size: medium;
+    color: #d96d60;
+    font-family: 'Schoolbell'
+}
+
+.about{
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #ffefea;
+    font-family: 'Schoolbell'
+}
+
+#studyButton{
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 3em 45%;
+      cursor: pointer;
+      border-radius: 12px;
+      opacity: 0.8;
+      width: 10em;
+}
+
