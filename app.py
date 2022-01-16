@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
+from notification import SMS
 
 app = Flask(__name__)
 
@@ -16,22 +17,23 @@ def stretchPage():
 
 ''' Later we will combine these two game page togeter '''
 # Rabbit game
-@app.route("/rabbit")
+@app.route("/games")
 def rabbitPage():
     name = "rabbit"
-    return render_template('rabbit.html', page=name)
-
-# Drawing game
-@app.route("/drawing")
-def drawingPage():
-    name = "drawing"
-    return render_template('drawing.html', page=name)
+    return render_template('games.html', page=name)
 
 # about page to add info regarding our webapp
 @app.route('/about')
 def about():
     list = ["I", "love", "pizza"]
     return render_template('about.html', listName=list)
+
+@app.route('/api', methods = ['POST'])
+def api():
+  print("sent SMS")
+  # do not uncomment this until demo
+  # SMS()
+  return request.values.get('input', '')
 
 ''' 
    ===================================================

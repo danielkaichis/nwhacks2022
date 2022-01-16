@@ -5,12 +5,6 @@
     <link href="{{ url_for('static', filename='css/draw.css') }}" rel="stylesheet" >
 {% endblock %}
 {% block content %}
-    <style>
-        body {
-            background-color: #f1d1c7;
-        }
-    </style>
-    <body>
         <h1>Page: {{ page }}</h1>
         <div id="demo">Test JS</div>
         <div id="drawingContainer">
@@ -23,7 +17,6 @@
 
             <canvas id="myCanvas" style="border:1px solid #000000;"/>
         </div>
-    </body>
 
     {#javascript#}
     <script>
@@ -103,6 +96,5 @@
         canvas.addEventListener("mousedown", drawPoint);
         canvas.addEventListener("mousemove", drawPoint);
         canvas.addEventListener("mouseup", disengage);
-
     </script>
 {% endblock content %}

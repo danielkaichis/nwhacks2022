@@ -1,0 +1,274 @@
+{% extends 'base.html' %}
+{% block css %}
+    <link href="{{ url_for('static', filename='css/rabbit.css') }}" rel="stylesheet" >
+{% endblock %}
+{% block title %}Rabbit Game{% endblock %}
+{% block content %}
+    <br/>
+    <h1 id="gameHeader">Can You Draw The Rabbit</h1>
+    <div id="gameRow">
+        {#rabbit game#}
+        <div class="gameContainer">
+            <svg version="1.1" id="happy_easter_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="800px" height="600px" viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
+            <ellipse opacity="0.1" cx="434.503" cy="374.889" rx="52.25" ry="6.824"></ellipse>
+
+                <path id="left_hand" fill="#F7F5F6" d="M413.272,311.638c-0.374,11.188-5.773,16.317-14.377,22.709c-4.992,3.463-12.448,7.393-8,14.684
+                    c4.448,7.288,19.413,0.915,24.981-3.78c6.945-5.234,11.262-14.459,12.831-22.604"/>
+
+                <ellipse id="left_leg" transform="matrix(-0.9465 0.3226 -0.3226 -0.9465 923.493 575.1336)" fill="#F7F5F6" cx="414.084" cy="364.099" rx="21.361" ry="8.772"/>
+                <ellipse id="right_leg" transform="matrix(-0.9079 0.4192 -0.4192 -0.9079 1013.4719 510.7546)" fill="#FFFFFF" cx="450.631" cy="366.704" rx="21.361" ry="8.773"/>
+                <g id="body_head">
+                <circle fill="#FFFFFF" cx="472.989" cy="354.011" r="11.878"/>
+                    <g>
+                    <path fill="#F7F5F6" d="M422.629,270.17c-6.005-18.171,5.794-36.338,24.584-41.556c14.408-4.32,15.667,11.855,14.709,22.779
+                        c-0.705,8.818-5.089,18.618-14.244,20.721c-5.477,1.122-7.947-2.024-12.159-2.531c-4.212-0.507-7.583,0.868-11.711-0.34"/>
+                </g>
+                    <g>
+                    <path fill="#FFFFFF" d="M452.141,265.245c5.775-18.245,25.979-26.059,44.266-19.284c14.208,4.936,5.755,18.785-1.42,27.078
+                        c-5.735,6.734-15.028,12.11-23.681,8.453c-5.097-2.299-5.257-6.296-8.374-9.173c-3.116-2.877-6.654-3.737-9.292-7.134"/>
+                </g>
+                    <g>
+                    <path fill="#F7F5F6" d="M455.561,270.467c3.621-12.548,17.271-18.23,29.862-13.926c9.782,3.121,4.254,12.715-0.496,18.499
+                        c-3.798,4.693-10.043,8.522-16.01,6.179c-3.517-1.48-3.696-4.204-5.873-6.114c-2.176-1.908-4.604-2.434-6.464-4.705"/>
+                </g>
+                    <path fill="#FFFFFF" d="M414.448,312.893c0,0-21.841,19.388-8.492,40.372c13.35,20.983,83.333,31.696,63.058-24.539
+                    c-12.099-33.557-15.234-30.917-15.234-30.917L414.448,312.893z"/>
+
+                    <ellipse transform="matrix(0.9992 -0.0399 0.0399 0.9992 -11.1659 17.7335)" fill="#fff" cx="438.18" cy="288.281" rx="41.041" ry="31.857"/>
+                    <g>
+                    <g>
+                        <path fill="#866161" d="M412.114,284.939c2.382-1.149,4.873-1.571,6.703,0.689c0.609,0.752,1.664-0.316,1.061-1.061
+                            c-2.271-2.804-5.572-2.346-8.521-0.923C410.486,284.064,411.247,285.358,412.114,284.939L412.114,284.939z"/>
+                    </g>
+                </g>
+                    <g>
+                    <g>
+                        <path fill="#866161" d="M435.102,290.001c2.234-1.622,4.853-2.741,7.213-0.711c0.729,0.627,1.795-0.429,1.061-1.061
+                            c-2.894-2.488-6.169-1.601-9.031,0.477C433.569,289.269,434.316,290.571,435.102,290.001L435.102,290.001z"/>
+                    </g>
+                </g>
+                    <g>
+                    <g>
+                        <path fill="#866161" d="M431.815,302.662c-2.778,1.823-5.974,2.914-8.654,0.342c-0.697-0.669-1.76,0.39-1.061,1.061
+                            c3.182,3.054,7.091,2.111,10.473-0.107C433.378,303.429,432.627,302.13,431.815,302.662L431.815,302.662z"/>
+                    </g>
+                </g>
+                    <g id="nose" opacity="0.9">
+                    <path fill="#F7BEC0" d="M420.685,293.314c-0.998,3.23,2.329,6.663,5.02,3.552c3.237-3.507-1.678-4.435-4.113-4.338"/>
+                </g>
+            </g>
+                <path opacity="0.4" fill="#6D7C84" d="M397.434,391.837c0,0.814-0.991,1.473-2.215,1.473h-32.437c-1.225,0-2.217-0.658-2.217-1.473
+                l0,0c0-0.812,0.992-1.471,2.217-1.471h32.437C396.442,390.366,397.434,391.024,397.434,391.837L397.434,391.837z"/>
+
+                <g id="paddle">
+                <path fill="#CCDBE5" d="M370.773,390.81c0,0,0.104,0.963-0.809,1.205c-1.282,0.34-1.55-0.521-1.55-0.521l-11.798-40.689
+                    l2.357-0.684L370.773,390.81z"/>
+                    <path fill="#96C670" d="M350.669,321.308c-0.738,0.062-1.203,2.01-1.211,4.672c-1.48-1.906-2.867-3.021-3.46-2.656
+                    c-0.8,0.492,0.152,3.492,2.126,6.701c0.813,1.324,1.675,2.473,2.461,3.336c0.383,0.992,0.819,1.578,1.239,1.541
+                    c0.114-0.01,0.222-0.064,0.321-0.16c0.424,0.26,0.772,0.344,1.001,0.203c0.455-0.279,0.342-1.371-0.201-2.852
+                    c0.118-1.158,0.127-2.588-0.004-4.133C352.622,324.206,351.604,321.228,350.669,321.308z"/>
+                    <path fill="#EFB66A" d="M353.994,350.12c1.7,2.145,5.89,6.156,6.176,0.791s0.711-20.926-4.813-20.229
+                    C346.597,331.856,342.515,337.298,353.994,350.12z"/>
+                    <g opacity="0.7">
+                    <g>
+                        <path fill="#E94E1B" d="M349.062,339.929c1.431,0.178,2.886,0.313,4.207-0.372c0.287-0.148,0.034-0.58-0.252-0.432
+                            c-1.232,0.639-2.629,0.469-3.955,0.304C348.743,339.389,348.747,339.89,349.062,339.929L349.062,339.929z"/>
+                    </g>
+                </g>
+                    <g opacity="0.7">
+                    <g>
+                        <path fill="#E94E1B" d="M356.139,343.662c1.21,0.316,2.384,0.013,3.003-1.135c0.153-0.283-0.278-0.536-0.432-0.252
+                            c-0.513,0.95-1.441,1.165-2.438,0.904C355.959,343.099,355.827,343.58,356.139,343.662L356.139,343.662z"/>
+                    </g>
+                </g>
+                    <g opacity="0.7">
+                    <g>
+                        <path fill="#E94E1B" d="M353.144,335.169c0.598,0,1.19-0.004,1.767-0.179c0.308-0.094,0.176-0.576-0.133-0.482
+                            c-0.535,0.162-1.08,0.161-1.634,0.161C352.821,334.669,352.821,335.169,353.144,335.169L353.144,335.169z"/>
+                    </g>
+                </g>
+                    <g opacity="0.7">
+                    <g>
+                        <path fill="#E94E1B" d="M354.098,349.273c0.981,0.136,1.784-0.147,2.684-0.51c0.295-0.119,0.167-0.604-0.133-0.482
+                            c-0.795,0.321-1.541,0.632-2.418,0.51C353.916,348.747,353.779,349.229,354.098,349.273L354.098,349.273z"/>
+                    </g>
+                </g>
+            </g>
+
+                <g id="right_hand" >
+                <path  fill="#FFFFFF" d="M449.133,329.358c1.385,3.258,2.051,6.961,2.624,11.287c0.539,5.468,0.317,13.074,8.426,12.923
+                    c8.108-0.152,9.809-14.726,8.519-21.204c-0.808-5.751-4.074-11.376-8.146-15.91"/>
+                    <g>
+                    <path fill="#F7F5F6" d="M448.65,329.491c1.622,3.998,2.381,8.36,2.737,12.645c0.221,2.651,0.443,5.306,1.503,7.776
+                        c2.02,4.707,8.473,5.381,12.032,2.125c3.987-3.647,4.696-10.557,4.663-15.61c-0.051-7.719-3.671-14.638-8.677-20.326
+                        c-0.427-0.485-1.131,0.225-0.707,0.707c4.647,5.28,7.941,11.512,8.353,18.623c0.281,4.88-0.482,10.439-3.226,14.581
+                        c-1.625,2.454-4.12,3.325-6.972,2.94c-3.133-0.423-4.64-2.976-5.325-5.783c-0.534-2.185-0.493-4.441-0.793-6.656
+                        c-0.522-3.85-1.157-7.67-2.624-11.287C449.376,328.636,448.408,328.894,448.65,329.491L448.65,329.491z"/>
+                </g>
+            </g>
+                <g id="carrot" class="carrot" transform="matrix(1,0,0,1,338,86)">
+                <path fill="#96C670" d="M140.055,298.276c-0.334,0.661,1.078,2.079,3.339,3.484c-2.4,0.258-4.077,0.853-4.078,1.549
+                    c-0.001,0.938,3.052,1.705,6.819,1.711c1.554,0.004,2.984-0.126,4.131-0.342c1.045,0.195,1.773,0.132,1.962-0.245
+                    c0.052-0.102,0.062-0.222,0.033-0.357c0.443-0.224,0.698-0.477,0.699-0.745c0.001-0.533-0.987-1.011-2.532-1.326
+                    c-0.923-0.709-2.135-1.468-3.519-2.168C143.547,298.137,140.478,297.438,140.055,298.276z"/>
+                    <path fill="#EFB66A" d="M166.318,310.582c2.718-0.32,8.332-1.777,3.917-4.84c-4.415-3.062-17.432-11.597-19.741-6.53
+                    C146.892,307.282,149.377,313.614,166.318,310.582z"/>
+                    <g opacity="0.7">
+                    <path fill="#E94E1B" d="M155.02,309.471c0.914-1.137,1.824-2.32,1.93-3.827c0.022-0.322-0.478-0.319-0.5,0
+                        c-0.096,1.357-0.962,2.452-1.783,3.474C154.466,309.366,154.817,309.722,155.02,309.471L155.02,309.471z"/>
+                </g>
+                    <g opacity="0.7">
+                    <path fill="#E94E1B" d="M161.956,305.358c0.907-0.873,1.248-2.019,0.601-3.153c-0.159-0.28-0.592-0.028-0.432,0.252
+                        c0.537,0.942,0.222,1.833-0.522,2.548C161.37,305.229,161.724,305.582,161.956,305.358L161.956,305.358z"/>
+                </g>
+                    <g opacity="0.7">
+                    <path fill="#E94E1B" d="M153.152,303.446c0.313-0.508,0.62-1.014,0.774-1.596c0.082-0.312-0.4-0.444-0.482-0.133
+                        c-0.143,0.541-0.432,1.004-0.723,1.477C152.551,303.47,152.983,303.72,153.152,303.446L153.152,303.446z"/>
+                </g>
+                    <g opacity="0.7">
+                    <path fill="#E94E1B" d="M165.659,310.043c0.63-0.761,0.807-1.598,0.971-2.549c0.054-0.315-0.428-0.45-0.482-0.133
+                        c-0.146,0.848-0.275,1.645-0.842,2.328C165.102,309.936,165.453,310.292,165.659,310.043L165.659,310.043z"/>
+                </g>
+            </g>
+
+
+                <path id="stars" fill="#e2b29f" d="M106.406,477.471h-4.87V472.6h4.87V477.471z M191,74.833h-4.869v4.87H191V74.833z M276.765,528.832h-4.87
+                v4.871h4.87V528.832z M157,547.975h-4.869v4.871H157V547.975z M216.435,429.268h-4.87v4.871h4.87V429.268z M191,182.268h-4.869v4.87
+                H191V182.268z M329.746,130.203h-4.869v4.87h4.869V130.203z M502.953,105.267h-4.869v4.871h4.869V105.267z M413.105,82.138h-4.869
+                v4.869h4.869V82.138z M663,105.267h-4.869v4.871H663V105.267z M651.869,179.833H647v4.869h4.869V179.833z M706,110.138h-4.869v4.869
+                H706V110.138z M745.435,267.763h-4.869v4.871h4.869V267.763z M559.869,187.138H555v4.87h4.869V187.138z M170,265.329h-4.869v4.87
+                H170V265.329z M95.304,177.398h-4.869v4.87h4.869V177.398z M450.631,55.833h-4.869v4.87h4.869V55.833z M259.869,158.183H255v4.871
+                h4.869V158.183z M243,276.446h-4.869v4.87H243V276.446z M309.435,212.974h-4.869v4.869h4.869V212.974z M334.615,143.267h-4.869
+                v4.871h4.869V143.267z M610,470.166h-4.869v4.869H610V470.166z M450.631,498.832h-4.869v4.869h4.869V498.832z M663,543.105h-4.869
+                v4.869H663V543.105z M356.072,547.977h-4.869v4.869h4.869V547.977z M92.869,79.703H88v4.87h4.869V79.703z M54.869,364.268H50v4.871
+                h4.869V364.268z M115.869,420.137H111v4.871h4.869V420.137z M665.435,358.426h-4.869v4.869h4.869V358.426z M727.435,406.693h-4.869
+                v4.869h4.869V406.693z M612.435,440.268h-4.869v4.869h4.869V440.268z M444.563,489.268h-4.869v4.869h4.869V489.268z
+                 M348.783,465.295h-4.869v4.869h4.869V465.295z M585.607,550.412h-4.869v4.869h4.869V550.412z M516.339,503.703h-4.869v4.869h4.869
+                V503.703z M715.435,501.268h-4.869v4.869h4.869V501.268z"/>
+            </svg>
+                <button id="feedMe" onclick=changerect() >Click To Feed Me</button>
+        </div>
+
+        {#drawing game#}
+        <div class="gameContainer">
+            <div id="drawingContainer">
+                <div id = "settings">
+                    <b>Size <span id="textSize"></span>: <input type="range" min="1" max="20" value="5" id = "size"></b>
+                    <b>Color:<input id = "color" type = "color" value="#000000"></b>
+                    <input id = "clear" type = "button" value="Clear">
+                </div>
+                <canvas id="myCanvas"/>
+
+            </div>
+            <a id="download" download="img.png" href="" onclick="downloadImage(this);">Download Your Drawing</a>
+        </div>
+    </div>
+
+
+        {#rabbit javascript#}
+        <script>
+            // get carrot element
+            var carrot = document.getElementById("paddle");
+
+            // animation
+            function changerect() {
+                // disappear
+                carrot.animate([
+                  // keyframes
+                  { transform: 'translateY(0px) translateX(0px)',
+                  opacity: 1},
+                  { transform: 'translateY(-50px) translateX(50px)',
+                  opacity: 0}
+                ], {
+                  // timing options
+                  duration: 1000,
+                  iterations: 1
+                });
+              }
+      </script>
+
+    {#drawing javascript#}
+    <script>
+        // canvas
+        let canvas = document.getElementById("myCanvas");
+        let ctx = canvas.getContext("2d");
+        let width = window.innerWidth/3;
+        let height = window.innerHeight/2;
+
+        // get size and color
+        let size = document.getElementById("size");
+        let color = document.getElementById("color");
+        let clear = document.getElementById("clear");
+        let download = document.getElementById("download");
+        let displaySize = document.getElementById("textSize");
+        let sizeVal = size.value;
+        let colorVal = color.value;
+
+        // canvas frame size
+        ctx.canvas.width  = width;
+        ctx.canvas.height = height;
+
+        // set default display pen size
+        displaySize.innerHTML = sizeVal;
+
+        // update size
+        size.oninput = function() {
+           sizeVal = this.value;
+           displaySize.innerHTML = this.value;
+        }
+
+        // update color
+        color.oninput = function() {
+           colorVal = this.value;
+        }
+
+        // clear canvas
+        clear.onclick = function (){
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // download canvas
+        let downloadImage = function (e){
+            let img = canvas.toDataURL("image/png");
+            e.href = img;
+        }
+
+        // ref: https://codepen.io/FreeGameBox/pen/aNLpZd
+        // ref: https://stackoverflow.com/questions/17130395/real-mouse-position-in-canvas
+        let isDragging;
+        let rect = canvas.getBoundingClientRect();
+        let scaleX = canvas.width / rect.width;
+        let scaleY = canvas.height / rect.height;
+        let drawPoint = function(e) {
+           if(isDragging) {
+              ctx.fillStyle = ctx.strokeStyle = colorVal;
+              ctx.lineTo((e.clientX - rect.left) * scaleX, (e.clientY  - rect.top) * scaleY);
+              ctx.lineWidth = sizeVal*2;
+              ctx.stroke();
+              ctx.beginPath();
+              ctx.arc((e.clientX - rect.left) * scaleX, (e.clientY  - rect.top) * scaleY, sizeVal, 0, Math.PI*2);
+              ctx.fill();
+              ctx.beginPath();
+              ctx.moveTo((e.clientX - rect.left) * scaleX, (e.clientY  - rect.top) * scaleY);
+           }
+        }
+
+        // start dragging
+        var engage = function() {
+           isDragging = true;
+        }
+
+        // stop dragging
+        var disengage = function() {
+           isDragging = false;
+           ctx.beginPath();
+        }
+
+        canvas.addEventListener("mousedown", engage);
+        canvas.addEventListener("mousedown", drawPoint);
+        canvas.addEventListener("mousemove", drawPoint);
+        canvas.addEventListener("mouseup", disengage);
+    </script>
+{% endblock content %}
+
+
