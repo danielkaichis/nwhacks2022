@@ -93,7 +93,7 @@
         }
 
         .edit-todo {
-            background-color: #C89e8a;
+            background-color: #acd1af;
         }
 
         #save-todo-btn {
@@ -102,16 +102,19 @@
         }
 
         .image-footer {
-            width: 100%;
+            width: 110%;
         }
 
+        .delete-todo {
+            background-color: #f18181;
+        }
 
     </style>
     <body>
-        <div class="grid grid-cols-12 gap-1 mt-20 w-screen h-full">
-            <div class="pl-20 bg-teal-lightest font-sans col-span-5">
-                <div class="ml-20 bg-white rounded shadow p-6 m-4 lg:w-3/4 lg:max-w-lg">
-                    <div class="mb-4">
+        <div class="grid grid-cols-12 gap-1 mt-20 w-full h-full">
+            <div class="pl-8 bg-teal-lightest font-sans col-span-5">
+                <div class="ml-20 bg-white rounded shadow px-6 pt-6 pb-2 mx-4 mt-4 lg:w-3/4 lg:max-w-lg">
+                    <div class="mb-2">
                         <h1 class="text-3xl md:text-4xl todo-title font-medium mb-2">To-Do List</h1>
                         <div class="flex mt-4">
                             <input class="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker" name="text" id="text" placeholder="Add Todo" />
@@ -139,8 +142,8 @@
                 </div>
             </div>
         </div>
-        <button id="break-btn" class="text-black transition-colors duration-300 mt-1 md:mt-0 md:ml-1" id="save-todo-btn">Break</button>
-        <img class="mt-32 image-footer" src="{{ url_for('static', filename='images/grass.png') }}" rel="image">
+        <button id="break-btn" class="text-black transition-colors duration-300" style="display: none" id="save-todo-btn">Break</button>
+        <img class="mt-32 image-footer" src="{{ url_for('static', filename='images/.png') }}" alt="img" rel="image">
     </body>
     </html>
 
@@ -150,6 +153,7 @@
         const minElem = document.querySelector("#minutes");
         const secElem = document.querySelector("#seconds");
         const startStop = document.querySelector("#stsp");
+        const breakBtn = document.getElementById("break-btn");
 
         let minutes = document.querySelector("#minutes").innerHTML,
         seconds = document.querySelector("#seconds").innerHTML,
@@ -183,21 +187,22 @@
                 startStop.innerHTML = "START";
                 progress = null;
                 progressStart = 0;
+                breakBtn.style.display = "block";
             }
         }
 
         function startStopProgress() {
-        if (!progress) {
-            progress = setInterval(progressTrack, speed);
-        } else {
-            clearInterval(progress);
-            progress = null;
-            progressStart = 0;
-            progressBar.style.background = `conic-gradient(
-                #F1d1c7 360deg,
-                #F1d1c7 360deg
-            )`;
-        }
+            if (!progress) {
+                progress = setInterval(progressTrack, speed);
+            } else {
+                clearInterval(progress);
+                progress = null;
+                progressStart = 0;
+                progressBar.style.background = `conic-gradient(
+                    #F1d1c7 360deg,
+                    #F1d1c7 360deg
+                )`;
+            }
         }
 
         function resetValues() {
@@ -234,16 +239,12 @@
             }
         };
 
-        const breakBtn = document.getElementById("break-btn");
-
         minElem.onblur = function () {
             resetValues();
-            breakBtn.style.display = "block";
         };
 
         secElem.onblur = function () {
             resetValues();
-            breakBtn.style.display = "block";
         };
 
         const text = document.getElementById("text");
@@ -300,7 +301,7 @@
                 htmlCode += `<div class='flex mb-4 items-center'>
                 <p class='w-full text-grey-darkest'>${list}</p>
                 <button onclick='editTodo(${i})' class='flex-no-shrink p-2 ml-4 mr-2 border-2 rounded text-white edit-todo text-grey bg-green-600'>Edit</button>
-                <button onclick='deleteTodo(${i})' class='flex-no-shrink p-2 ml-2 border-2 rounded text-white bg-red-500'>Delete</button>
+                <button onclick='deleteTodo(${i})' class='flex-no-shrink p-2 ml-2 border-2 rounded text-white delete-todo'>Delete</button>
                 </div>`;
             });
             listBox.innerHTML = htmlCode;
