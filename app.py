@@ -10,6 +10,12 @@ def homePage():
     name = "home"
     return render_template('home.html', page=name)
 
+#loading
+@app.route('/loading')
+def loadingPage():
+    name = "loading"
+    return render_template('loading.html', page=name)
+
 # stretch
 @app.route("/stretch")
 def stretchPage():

@@ -17,23 +17,57 @@
             margin-right: auto;
             width: auto;
         }
+
+        body {
+            background: linear-gradient(45deg, rgba(241,209,199,1) 13%, rgb(231, 202, 193) 61%);
+        }
+
+        .next-stretch {
+            background-color: #abd1af;
+        }
+
+        .next-stretch:hover {
+            background-color: #90cc96;
+            color: rgb(68, 68, 68);
+        }
+
+        .next {
+            background-color: #eb5035;
+            color: white;
+        }
+
+        .next:hover {
+            background-color: #d93926;
+            color: white;
+        }
+
+
+        
     </style>
-    <div class="logo-container w-full left-0 top-0 absolute justify-center place-content-center py-2">
-        <img class="logo justify-center" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" class="image-footer"> 
-    </div>
-    <br/>
-    <br/>
-    <br/>
+    <body class="h-screen">
+        <div class="logo-container w-full left-0 top-0 absolute justify-center place-content-center py-2">
+            <img class="logo justify-center" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" class="image-footer"> 
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
 
-    <!-- This is just an example gif -->
-    <!-- src = path taken to find gif, and made it to be 400x400 -->
-    <!-- Please make all of them 400x400 -->
-    <h1 id="name"></h1>
-    <img src="/static/gifs/001.gif" id="stretchImage" alt="Stretch" style="width:400px;height:400px;">
-    <input type="button" id="stretchButton" value="Next"/>
-    <div id="description"></div>
-    <a href="/games" class="next" style="background-color: #04AA6D;color: white;">Next &raquo;</a>
-
+        <div class="grid grid-cols-6 col-gap-20 justify-center 2 place-content-center m-auto w-2/3">
+            <div class="col-span-3">
+                <img src="/static/gifs/001.gif" id="stretchImage" class="justify-center" alt="Stretch" style="width:400px;height:400px;">
+            </div>
+            <div class="col-span-3">
+                <br/>
+                <br/>
+                <h1 id="name" class="font-semibold text-2xl pb-2"></h1>
+                <div id="description" class="text-xl col-span-3"></div>
+                <br/>
+                <input type="button" class="next-stretch p-2 border rounded-lg text-gray-900" id="stretchButton" value="Next Stretch"/>
+            </div>
+        </div>
+        <a href="/games" class="next mt-40 items-center">Next Page &raquo;</a>
+    </body>
 
     {#javascript#}
     <script>
