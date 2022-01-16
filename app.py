@@ -42,25 +42,6 @@ def api():
   #SMS()
   return request.values.get('input', '')
 
-''' 
-   ===================================================
-    # Will be delete at the end 
-    # Example how to pass data from flask to HTML, how to get data from HTML to flask
-   ===================================================
-'''
-@app.route('/form', methods=['GET', 'POST'])
-def form():
-    request_method = request.method
-    # res from server
-    if request_method == "POST":
-        user = request.form['first_name']
-        return redirect(url_for("greet", name=user))
-    return render_template('form.html', request_method=request_method)
-
-@app.route("/greet/<string:name>")
-def greet(name):
-    return f"Hello {name}"
-
 # Dont delete this
 if __name__ == '__main__':
     app.run(debug=True)
