@@ -55,9 +55,10 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height);
         }
 
-        downloadImage = function (el){
+        // download canvas
+        downloadImage = function (e){
             let img = canvas.toDataURL("image/png");
-            el.href = img;
+            e.href = img;
         }
 
         // ref: https://codepen.io/FreeGameBox/pen/aNLpZd
@@ -80,10 +81,12 @@
            }
         }
 
+        // start dragging
         var engage = function() {
            isDragging = true;
         }
 
+        // stop dragging
         var disengage = function() {
            isDragging = false;
            ctx.beginPath();
