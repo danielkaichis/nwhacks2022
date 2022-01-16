@@ -31,7 +31,7 @@ def about():
 def api():
   print("sent SMS")
   # do not uncomment this until demo
-  # SMS()
+  #SMS()
   return request.values.get('input', '')
 
 ''' 

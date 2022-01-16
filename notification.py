@@ -12,6 +12,6 @@ def SMS():
     client.messages.create(
         to=os.getenv("PHONETO"),
         from_=os.getenv("PHONEFROM"),
-        body="Hello World"
+        body="Time to take a break! You deserve it!"
     )
 

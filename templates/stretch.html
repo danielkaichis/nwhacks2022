@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
 {% block title %}Stretch{% endblock %}
 {% block content %}
+    <style>
+        .logo-container {
+            background-color: #dca195;
+        }
+
+        .logo {
+            height: 50px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: auto;
+        }
+    </style>
+    <div class="logo-container w-full left-0 top-0 absolute justify-center place-content-center py-2">
+        <img class="logo justify-center" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" class="image-footer"> 
+    </div>
     <h1>Page: {{ page }}</h1>
     <div id="demo">Test JS</div>
 
