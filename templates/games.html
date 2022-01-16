@@ -2,6 +2,9 @@
 {% block css %}
     <link href="{{ url_for('static', filename='css/games.css') }}" rel="stylesheet" >
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Schoolbell&display=swap" rel="stylesheet">
 {% endblock %}
 {% block title %}Rabbit Game{% endblock %}
 {% block content %}
@@ -17,9 +20,48 @@
             margin-right: auto;
             width: auto;
         }
+
+        .image-footer {
+            width: 80%;
+            margin: 0 10%;
+        }
     </style>
     <body>
         <div class="logo-container w-full left-0 top-0 absolute py-2">
+            <div class="absolute pt-1 w-100 font-bold text-3xl pl-20 timer" style="color: #fef0e3; font-family: 'Schoolbell', cursive;">
+                <div id="time">
+                    <span>Time Left:</span>
+                    <span id="minutes">5</span>
+                    <span id="colon">:</span>
+                    <span id="seconds">0</span>
+                </div>
+            </div>
+            <script>
+                var remaining = 60 * 5;
+
+                function countdown() {
+                    var minElem = document.getElementById('minutes');
+                    var secElem = document.getElementById('seconds');
+                    var minutes = document.querySelector("#minutes").innerHTML
+                    var seconds = document.querySelector("#seconds").innerHTML
+                    progressStart = 0,
+                    progressEnd = parseInt(minutes) * 60 + parseInt(seconds),
+                    secRem = Math.floor((progressEnd - progressStart) % 60);
+                    minRem = Math.floor((progressEnd - progressStart) / 60);
+
+                    //secElem.innerHTML = secRem.toString().length == 2 ? secRem : `0${secRem}`;
+                    //minElem.innerHTML = minRem.toString().length == 2 ? minRem : `0${minRem}`;
+                    document.getElementById('seconds').innerHTML = remaining % 60;
+                    document.getElementById('minutes').innerHTML = (remaining - (remaining % 60)) / 60;
+                    if (!remaining--) {
+                        alert('Back to work!');
+                        return;
+                    }
+                    setTimeout(countdown, 1000);
+                }
+
+                window.onload = countdown;
+            </script>
             <img class="logo justify-center" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" class="image-footer"> 
         </div>
         <br/>
@@ -29,7 +71,7 @@
         <h1 id="gameHeader" class="font-bold text-3xl">Can You Draw The Rabbit?</h1>
         <div id="gameRow">
             {#rabbit game#}
-            <div class="gameContainer h-screen">
+            <div class="gameContainer">
                 <svg version="1.1" id="happy_easter_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="800px" height="600px" viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
                 <ellipse opacity="0.1" cx="434.503" cy="374.889" rx="52.25" ry="6.824"></ellipse>
 
@@ -127,7 +169,7 @@
                             c-0.522-3.85-1.157-7.67-2.624-11.287C449.376,328.636,448.408,328.894,448.65,329.491L448.65,329.491z"/>
                     </g>
                 </g>
-                    <g id="carrot" class="carrot" transform="matrix(1,0,0,1,338,86)">
+                    <g id="carrot" style="top: -30px" class="carrot">
                     <path fill="#96C670" d="M140.055,298.276c-0.334,0.661,1.078,2.079,3.339,3.484c-2.4,0.258-4.077,0.853-4.078,1.549
                         c-0.001,0.938,3.052,1.705,6.819,1.711c1.554,0.004,2.984-0.126,4.131-0.342c1.045,0.195,1.773,0.132,1.962-0.245
                         c0.052-0.102,0.062-0.222,0.033-0.357c0.443-0.224,0.698-0.477,0.699-0.745c0.001-0.533-0.987-1.011-2.532-1.326
@@ -167,22 +209,22 @@
                     M348.783,465.295h-4.869v4.869h4.869V465.295z M585.607,550.412h-4.869v4.869h4.869V550.412z M516.339,503.703h-4.869v4.869h4.869
                     V503.703z M715.435,501.268h-4.869v4.869h4.869V501.268z"/>
                 </svg>
-                    <button id="feedMe" onclick=changerect() >Click To Feed Me</button>
+                    <button id="feedMe" class="bg-white p-2 border border-2 border-gray-900 rounded-lg" onclick=changerect() >Click To Feed Me</button>
             </div>
 
-            {#drawing game#}
-            <div class="gameContainer">
-                <div id="drawingContainer">
-                    <div id = "settings">
-                        <b>Size <span id="textSize"></span>: <input type="range" min="1" max="20" value="5" id = "size"></b>
-                        <b>Color:<input id ="color" class="justify-center" type ="color" value="#000000"></b>
-                        <input id = "clear" type = "button" value="Clear">
-                    </div>
-                    <canvas id="myCanvas"/>
-
+            {#drawing game#}   
+            <div class="h-full pt-10">
+                <div id ="settings" class="pl-2">
+                    <b class="pl-10">Size <span id="textSize"></span>: <input type="range" min="1" max="20" value="5" id = "size"></b>
+                    <b>Color:<input id ="color" class="align-middle" type ="color" value="#000000"></b>
+                    <input id ="clear" class="p-1 mb-2 button border border-2 border-black" type ="button" value="Clear">
+                    <a id="download" download="img.png" href="" onclick="downloadImage(this);">Download</a>
                 </div>
-                <a id="download" download="img.png" href="" onclick="downloadImage(this);">Download Your Drawing</a>
+                <canvas id="myCanvas" class="h-1/2"/>
             </div>
+        </div>
+        <div class="h-100">
+            <img class="image-footer" src="{{ url_for('static', filename='images/grass.png') }}" alt="img" rel="image">
         </div>
     </body>
 
@@ -190,7 +232,7 @@
     {#rabbit javascript#}
     <script>
         // get carrot element
-        var carrot = document.getElementById("paddle");
+        const carrot = document.getElementById("carrot");
 
         // animation
         function changerect() {
@@ -199,14 +241,16 @@
                 // keyframes
                 { transform: 'translateY(0px) translateX(0px)',
                 opacity: 1},
-                { transform: 'translateY(-50px) translateX(50px)',
+                { transform: 'translateY(-2px) translateX(260px)',
+                opacity: 1},
+                { transform: 'translateY(-2px) translateX(260px)',
                 opacity: 0}
             ], {
                 // timing options
                 duration: 1000,
                 iterations: 1
             });
-            }
+        }
     </script>
 
     {#drawing javascript#}
