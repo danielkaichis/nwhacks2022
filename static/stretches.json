@@ -1,0 +1,37 @@
+{
+    "stretchGifs":[
+        {
+            "001.gif": ["Triceps Strechs", "1. Raise arm over the same shoulder and reach for mid back.\\n2.Use other hand and push the elbow down towards shoulder.\\n3. Hold for 10 seconds. 4. Repeat for other arm.\\n"]
+        },
+        {
+            "002.gif": ["Overhead Reach", "1. Raise straighted arm upward.\\n2. Tilt body sideways and bring outstretched arm towards opposite side.\\n3. Hold for 10 seconds.\\n4. Repeat for the other arm.\\n"]
+        },
+        {
+            "003.gif": ["Upper Body and Arm Stretch", "1. Raise both arms and hold them together above head.\\n2. Push arms upward and stretch.\\n3. Hold for 10 seconds.\\n"]
+        },
+        {
+            "004.gif": ["Pectoralis Stretch", "1. Bring both arms behind back and interlock them with palms facing back.\\n2. Push chest foward, raise chin.\\n3. Hold pose for 10 seconds.\\n"]
+        },
+        {
+            "005.gif": ["Forward Stretch", "1. Bring both arms straight forward.\\n2. Lower head forward in line with arms and reach fowward.\\n3. Hold pose for 10 seconds.\\n"]
+        },
+        {
+            "006.gif": ["Trunk Rotation", "1.Keep feet planted, facing forward.\\n2. Place one arm on the back of your chair, twist upper body in the same direction.\\n3. Hold for 10 Seconds.\\n4. Repeat on other side.\\n"]
+        },
+        {
+            "007.png": ["Hip and Knee Flexion Stretch", "1. Hug one knee.\\n2. Pull your knee towards you chest.\\3. Hold the pose for 10 seconds.\\n4. Repeat on other knee.\\n"]
+        },
+        {
+            "008.png": ["Hamstrings Stretch", "1. While seated, extend legs straight outward.\\n2. Keeping legs straight, reach towards your toes.\\3. Hold for 10 seconds.\\n4. Repeat on other side.\\n"]
+        },
+        {
+            "009.png": ["Shoulder Shrug", "1. Raise both shoulders upwards.\\n2. Drop shoulders back down.\\3. Repeat 10 times.\\n"]
+        },
+        {
+            "010.png": ["Neck Stretchs", "1. Lean head forward.\\n2. Roll head towards oneside and hold for 10 seconds.\\3. Reset head back to start, and go in different direciton.\\n4. Repeat 3 times for each direction.\\n"]
+        },
+        {
+            "011.png": ["Upper Trap Stretch", "1. Using one arm, pull head to the same side.\\n2. Hold the pose for 10 seconds where a light stretch is felt.\\3. Alternate to other side.\\n"]
+        }
+    ]
+}

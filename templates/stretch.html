@@ -4,10 +4,34 @@
     <h1>Page: {{ page }}</h1>
     <div id="demo">Test JS</div>
 
+    <!-- This is just an example gif -->
+    <!-- src = path taken to find gif, and made it to be 400x400 -->
+    <!-- Please make all of them 400x400 -->
+    <img src="/static/gifs/001.gif" alt="Stretch" style="width:400px;height:400px;">
+
+    <input type="button" id="stretchButton" value="1"/>
+
     {#javascript#}
     <script>
+        
         var data = "{{ page }} page";
         alert(data)
+        let button = document.getElementById("stretchButton");
+
+
+        let i = 1;
+        button.onclick = function(){
+            
+            let image = `00${i}.gif`
+
+            console.log(image)
+            i += 1;
+
+            if(i == 12){
+                i = 1;
+            }
+        }
         document.getElementById("demo").innerHTML = "added from js";
+
     </script>
 {% endblock content %}
