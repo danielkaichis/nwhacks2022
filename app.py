@@ -52,4 +52,4 @@ def api():
 
 # Dont delete this
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run()
