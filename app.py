@@ -37,11 +37,6 @@ def rabbitPage():
     name = "rabbit"
     return render_template('games.html', page=name)
 
-# about page to add info regarding our webapp
-@app.route('/about')
-def about():
-    list = ["I", "love", "pizza"]
-    return render_template('about.html', listName=list)
 
 @app.route('/api', methods = ['POST'])
 def api():
