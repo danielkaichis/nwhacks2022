@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-from notification import SMS
+# from notification import SMS
 import json
 import os
 
@@ -38,13 +38,13 @@ def rabbitPage():
     return render_template('games.html', page=name)
 
 
-@app.route('/api', methods = ['POST'])
-def api():
-  print("sent SMS")
-  # do not uncomment this until demo
-  #SMS()
-  return request.values.get('input', '')
+# @app.route('/api', methods = ['POST'])
+# def api():
+#   print("sent SMS")
+#   # do not uncomment this until demo
+#   #SMS()
+#   return request.values.get('input', '')
 
 # Dont delete this
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
